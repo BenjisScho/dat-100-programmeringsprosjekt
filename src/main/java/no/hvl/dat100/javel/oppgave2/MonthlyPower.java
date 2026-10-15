@@ -36,7 +36,7 @@ public class MonthlyPower {
             sum = Math.round(sum * 100.0) / 100.0;
         }
 
-        System.out.println("Usage: " + sum);
+        System.out.println("Usage: " + sum + "kwh");
         return sum;
     }
 
