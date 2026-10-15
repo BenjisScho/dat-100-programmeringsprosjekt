@@ -16,13 +16,49 @@ public class DayMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        System.out.println("A)");
+        DailyPower.printPowerPrices(powerprices_day);
 
-         Write code that tests the methods you implement in the DailyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
+        System.out.println();
+
+        System.out.println("B)");
+        DailyPower.printPowerUsage(powerusage_day);
+
+        System.out.println();
+
+        System.out.println("C)");
+        double total = DailyPower.computePowerUsage(powerusage_day);
+        System.out.println(total);
+
+        System.out.println();
+
+        System.out.println("D)");
+        double spotpris = DailyPower.computeSpotPrice(powerusage_day, powerprices_day);
+        System.out.println("SpotPris: " + spotpris);
+
+        System.out.println();
+
+        System.out.println("F)");
+        double support = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
+        System.out.println("Strømstøtte: " + support);
+
+        System.out.println();
+
+        System.out.println("G)");
+        double price = DailyPower.computeNorgesPrice(powerusage_day);
+        System.out.println("Norgespris: " + price);
+
+        System.out.println();
+
+        System.out.println("H)");
+        double peak = DailyPower.findPeakUsage(powerusage_day);
+        System.out.println("Høyeste forbruk: " + peak);
+
+        System.out.println();
+
+        System.out.println("I)");
+        double average = DailyPower.findAvgPower(powerusage_day);
+        System.out.println("Gjennomsbittlig forbruk: " + average);
 
     }
 }
