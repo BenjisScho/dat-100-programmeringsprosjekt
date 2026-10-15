@@ -35,6 +35,7 @@ public class MonthlyPower {
             sum = sum + DailyPower.computePowerUsage(usage[i]);
         }
 
+        System.out.println("Usage: " + sum);
         return sum;
     }
 
