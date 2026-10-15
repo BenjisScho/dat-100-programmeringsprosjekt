@@ -8,18 +8,20 @@ public class Customers {
 
     // a) Complete constructor
     public Customers(int size) {
-
-        // TODO
-
+        customers = new Customer[size];
     }
 
     // b) count number of non-null references
     public int countNonNull() {
 
-
         int count = 0;
 
-        // TODO
+        // loop through customers, ignoring every null-based item
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null) {
+                count++;
+            }
+        }
 
         return count;
     }
@@ -27,20 +29,28 @@ public class Customers {
     // c) return reference to customer with given id (if exists)
     public Customer getCustomer(int customer_id) {
 
-        boolean funnet = false;
         Customer c = null;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i].getCustomer_id() == customer_id) {
+                c = customers[i];
+                break;
+            }
+        }
 
         return c;
     }
 
     // d) add a customer to the reference table
     public boolean addCustomer(Customer c) {
-
         boolean inserted = false;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] == null) {
+                customers[i] = c;
+                inserted = true;
+            }
+        }
 
         return inserted;
     }
@@ -58,11 +68,6 @@ public class Customers {
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
-
-        Customer[] customers = null;
-
-        // TODO
-
         return customers;
     }
 }
