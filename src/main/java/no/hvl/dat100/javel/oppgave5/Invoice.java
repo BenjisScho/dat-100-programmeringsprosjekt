@@ -5,6 +5,7 @@ import no.hvl.dat100.javel.oppgave2.MonthlyPower;
 import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 
 import java.util.Arrays;
+import java.math.*;
 
 public class Invoice {
 
@@ -65,6 +66,7 @@ public class Invoice {
 
         }
 
+        amount = Math.round(amount * 100.0) / 100.0;
         System.out.println("Amount: " + amount + "kr");
     }
 
@@ -73,7 +75,6 @@ public class Invoice {
         c.show();
         System.out.println();
         System.out.println("Month: " + month);
-        //System.out.println("Usage: " + usage);
         MonthlyPower.computePowerUsage(usage);
         computeAmount();
 
