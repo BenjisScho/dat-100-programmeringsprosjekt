@@ -33,6 +33,7 @@ public class MonthlyPower {
 
         for (int i = 0; i < usage.length; i++){
             sum = sum + DailyPower.computePowerUsage(usage[i]);
+            sum = Math.round(sum * 100.0) / 100.0;
         }
 
         System.out.println("Usage: " + sum);
