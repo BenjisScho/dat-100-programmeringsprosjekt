@@ -28,17 +28,12 @@ public class Customers {
 
     // c) return reference to customer with given id (if exists)
     public Customer getCustomer(int customer_id) {
-
-        Customer c = null;
-
         for (int i = 0; i < customers.length; i++) {
-            if (customers[i].getCustomer_id() == customer_id) {
-                c = customers[i];
-                break;
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
+                return customers[i];
             }
         }
-
-        return c;
+        return null;
     }
 
     // d) add a customer to the reference table
@@ -49,6 +44,7 @@ public class Customers {
             if (customers[i] == null) {
                 customers[i] = c;
                 inserted = true;
+                break;
             }
         }
 
@@ -58,16 +54,33 @@ public class Customers {
     // e) remove customer with given id from reference table
     public Customer removeCustomer(int customer_id) {
 
-        boolean deleted = false;
         Customer c = null;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
+                c = customers[i];
+                customers[i] = null;
+                break;
+            }
+        }
 
         return c;
     }
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
-        return customers;
+        Customer[] cs = new Customer[customers.length];
+
+        int count = 0;
+
+        // loop through customers, ignoring every null-based item
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null) {
+                cs[count] = customers[i];
+                count++;
+            }
+        }
+
+        return java.util.Arrays.copyOf(cs, count);
     }
 }

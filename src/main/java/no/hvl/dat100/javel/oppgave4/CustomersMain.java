@@ -3,6 +3,8 @@ package no.hvl.dat100.javel.oppgave4;
 import no.hvl.dat100.javel.oppgave3.Customer;
 import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 
+import java.util.Arrays;
+
 public class CustomersMain {
 
     static Customers testCustomers = new Customers(5);
@@ -35,10 +37,19 @@ public class CustomersMain {
         // Counting the customers
         CountNonNull();
 
+        // Getting specific customer
+        GetCustomer(1001);
+
+        // Remove specific customer
+        RemoveCustomer(1002);
+
+        // Get all customers
+        GetAllCustomers();
+
     }
 
     public static void CountNonNull() {
-        System.out.println("You have: " + testCustomers.countNonNull());
+        System.out.println("You have: " + testCustomers.countNonNull() + " customers.");
     }
 
     public static void AddCustomer() {
@@ -47,6 +58,35 @@ public class CustomersMain {
         testCustomers.addCustomer(charlie);
         testCustomers.addCustomer(diana);
         testCustomers.addCustomer(ethan);
+    }
+
+    public static void GetCustomer(int id) {
+        System.out.println("Your customer is: " + testCustomers.getCustomer(id).getName());
+    }
+
+    public static void RemoveCustomer(int id) {
+        Customer c = testCustomers.getCustomer(id);
+
+        if (c != null) {
+            String name = c.getName();
+            testCustomers.removeCustomer(id);
+            System.out.println("You removed customer: " + name);
+        }
+        else {
+            System.out.println("Could not find the designated customer.");
+        }
+    }
+
+    public static void GetAllCustomers() {
+        Customer[] c = testCustomers.getCustomers();
+
+        String[] names = new String[c.length];
+
+        for (int i = 0; i < c.length; i++) {
+            names[i] = c[i].getName();
+        }
+
+        System.out.println(Arrays.toString(names));
     }
 
 }
